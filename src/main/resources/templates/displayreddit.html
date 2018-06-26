@@ -19,9 +19,10 @@
 <br><br>
 <div class="m1">
     <div class="content-wrapper app-section">
-        <h4><span th:text="${reddit.title}" ></span></h4><br/>
+        <h4><em><span th:text="${reddit.title}" ></span></em></h4><br/>
         <h4>Submitted by <span th:text="${reddit.name}" ></span></h4><br/>
         <h4><span th:text="${reddit.date}" ></span></h4><br/>
+        <h4>URL: <a th:href="${reddit.URL}"><span th:text="${reddit.URL}" ></span></a></h4><br/>
         <strong><a class="link" th:href="@{/delete/{id}(id=${reddit.id})}">Delete This Post</a></strong>
     </div>
 </div>

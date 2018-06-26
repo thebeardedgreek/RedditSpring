@@ -17,6 +17,11 @@ body{
     color: white;
 }
 
+.nav-links{
+    text-decoration: none;
+    color: lightblue;
+}
+
 .Aligner {
     display: flex;
     align-items: center;

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Controller
@@ -21,7 +23,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String listReddits(Model model){
-        model.addAttribute("reddits", redditRepository.findAll());
+        model.addAttribute("reddits", redditRepository.findAllByOrderByDateDesc());
         return "redditlist";
     }
 
@@ -36,6 +38,7 @@ public class HomeController {
         if(result.hasErrors()){
             return "redditform";
         }
+        reddit.setDate(LocalDateTime.now());
         redditRepository.save(reddit);
         return "redirect:/";
     }

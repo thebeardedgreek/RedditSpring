@@ -5,8 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Entity
 public class Reddit {
@@ -24,11 +28,9 @@ public class Reddit {
 
     @NotEmpty
     @Size(min = 2)
-    private String date;
-
-    @NotEmpty
-    @Size(min = 2)
     private String title;
+
+    private LocalDateTime date;
 
     public long getId() {
         return id;
@@ -55,10 +57,10 @@ public class Reddit {
     }
 
     public String getDate() {
-        return date;
+        return date.format(DateTimeFormatter.ofPattern("MMMM dd, yyyy"));
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

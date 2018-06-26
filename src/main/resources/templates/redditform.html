@@ -18,9 +18,6 @@
         <label>URL:</label>
         <input type="text" th:field="*{URL}"/>
         <span th:if="${#fields.hasErrors('URL')}" th:errors="*{URL}"></span>
-        <label>Date of Submission:</label>
-        <input type="text" th:field="*{date}"/>
-        <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
         <input class="submit" type="submit" value="Submit"/>
     </form>
 </div>
