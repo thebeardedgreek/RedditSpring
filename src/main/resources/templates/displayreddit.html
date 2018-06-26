@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit List</title>
+    <link rel="stylesheet" type="text/css" href="/form-style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Show All Posts<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br><br>
+<div class="m1">
+    <div class="content-wrapper app-section">
+        <h4><span th:text="${reddit.title}" ></span></h4><br/>
+        <h4>Submitted by <span th:text="${reddit.name}" ></span></h4><br/>
+        <h4><span th:text="${reddit.date}" ></span></h4><br/>
+        <strong><a class="link" th:href="@{/delete/{id}(id=${reddit.id})}">Delete This Post</a></strong>
+    </div>
+</div>
+</body>
+</html>

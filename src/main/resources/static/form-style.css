@@ -1,0 +1,27 @@
+body{
+    background-image: url("img/background2.jpg");
+    background-size: 100%;
+}
+
+.link{
+    color: red;
+    font-size: 35px;
+}
+
+.content-wrapper{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    border: 2px solid white;
+}
+
+.m1{
+    padding-top: 150px;
+}
+
+.app-section{
+    padding: 20px;
+    margin: 20px;
+    margin-top: 30px;
+    align-items: center;
+    color: white;
+}

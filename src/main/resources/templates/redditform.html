@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reddit Submission Form</title>
+    <link rel="stylesheet" type="text/css" href="/add-style.css">
+</head>
+<body>
+<div class="m1">
+    <form class="content-wrapper app-section" action="#" th:action="@{/process}" th:object="${reddit}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label>Name of User Posting:</label>
+        <input type="text" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label>Post Title:</label>
+        <input type="text" th:field="*{title}"/>
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+        <label>URL:</label>
+        <input type="text" th:field="*{URL}"/>
+        <span th:if="${#fields.hasErrors('URL')}" th:errors="*{URL}"></span>
+        <label>Date of Submission:</label>
+        <input type="text" th:field="*{date}"/>
+        <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+        <input class="submit" type="submit" value="Submit"/>
+    </form>
+</div>
+</body>
+</html>

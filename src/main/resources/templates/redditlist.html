@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit List</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <a class="navbar-brand" href="#">
+                <img src="/img/reddit-logo.jpg" class="Aligner" alt="reddit-logo">
+            </a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/add">Add a Reddit Post<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Reddit Posts (by title)
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <table th:each="reddit: ${reddits}">
+                        <tr>
+                            <span>  <a th:text=" ${reddit.title}" th:href="@{/detail/{id}(id=${reddit.id})}"></a></span>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        <form th:action="@{/search}" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<section>
+    <div class="app-section">
+        <table th:each="reddit: ${reddits}" class="app-section content-wrapper">
+            <tr>
+                <th><a th:href="@{/detail/{id}(id=${reddit.id})}"><span th:text="${reddit.title}"></span></a></th>
+            </tr>
+            <tr>
+                <td>Submitted by <span th:text="${reddit.name}"></span></td>
+            </tr>
+            <tr>
+                <td><a th:href="@{/update/{id}(id=${reddit.id})}">Update</a></td>
+                <td><a th:href="@{/delete/{id}(id=${reddit.id})}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="content-wrapper app-section" th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
+</section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<div></div>
+</body>
+</html>
