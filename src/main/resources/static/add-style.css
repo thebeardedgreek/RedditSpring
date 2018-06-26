@@ -1,6 +1,7 @@
 body{
     background-size: 50%;
-    background-position: bottom;
+    background-position: top;
+    background-repeat: no-repeat;
     background-image: url("img/background3.jpg");
 }
 
