@@ -25,6 +25,10 @@ body{
     color: white;
 }
 
+.search-align{
+    margin-right: 15px;
+}
+
 .app-section{
     display: flex;
     justify-content: space-evenly;
@@ -33,4 +37,14 @@ body{
     align-items: center;
     color: white;
     font-size: 25px;
+}
+
+.Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
 }
