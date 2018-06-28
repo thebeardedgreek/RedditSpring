@@ -2,7 +2,7 @@ body{
     background-size: 50%;
     background-position: top;
     background-repeat: no-repeat;
-    background-image: url("img/background3.jpg");
+    background-image: url("/img/background3.jpg");
 }
 
 .link{

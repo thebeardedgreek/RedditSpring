@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 @Controller
@@ -60,12 +59,6 @@ public class HomeController {
         redditRepository.deleteById(id);
         return "redirect:/";
     }
-
-//    @GetMapping("/search")
-//    public String getSearch()
-//    {
-//        return "redditsearchform";
-//    }
 
     @RequestMapping("/search")
     public String showSearchResults(HttpServletRequest request, Model model)
